@@ -1,24 +1,10 @@
-# wakeup
+# 早起きチャレンジDapp
+早起きをするとETHをもらえるDappです
+アプリケーションの説明は下記の記事をご覧ください
+https://qiita.com/Shoyu_N/items/b765344bae9305f29c76
 
-## Project setup
-```
-npm install
-```
-
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
-
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+## アプリケーションの説明
+まず、起床時刻をセットしてください。
+このときデポジットとして0.01ETHが必要です。
+続いて、その起床時刻になったら目覚めた！というボタンを押してください。
+5日間、起床時刻に目覚めることができると、デポジットとチャレンジ成功報酬0.003ETHがもらえます。
