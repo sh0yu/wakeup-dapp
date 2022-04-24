@@ -22,17 +22,17 @@
 require('dotenv').config();
 // const mnemonic = 'test test test test test test test test test test test junk' // process.env["MNEMONIC"];
 // const ganacheMnemonic = process.env["GANACHE_MNEMONIC"];
-const kovanMnemonic = process.env["KOVAN_MNEMONIC"];
-const infuraKey = process.env["INFURA_KEY"];
+const GANACHE_MNEMONIC = process.env["GANACHE_MNEMONIC"];
+const MAINNET_MNEMONIC = process.env["MAINNET_MNEMONIC"];
+const INFURA_API_OPTIMISM_KOVAN_URL = process.env["INFURA_API_OPTIMISM_KOVAN_URL"];
+const INFURA_API_OPTIMISM_MAINNET_URL = process.env["INFURA_API_OPTIMISM_MAINNET_URL"];
+// const infuraKey = process.env["INFURA_KEY"];
 
 //uncomment to use mainnetMnemonic, be sure to set it in the .env file
 //const mainnetMnemonic = process.env["MAINNET_MNEMONIC"]
 // const { ganache } = require('@eth-optimism/plugins/ganache');
 
 const HDWalletProvider = require('@truffle/hdwallet-provider');
-// const fs = require('fs');
-// const mnemonic = fs.readFileSync(".secret").toString().trim();
-
 module.exports = {
   /**
    * Networks define how you connect to your ethereum client and let you set the
@@ -81,11 +81,24 @@ module.exports = {
     // network_id: 2111,   // This network is yours, in the cloud.
     // production: true    // Treats this network as if it was a public net. (default: false)
     // }
-    optimistic_kovan: {
+    optimism_kovan: {
       network_id: 69,
       chain_id: 69,
+      from: "0x400f16c73A467E8Eedd24354cB561d37425dda32",
+      networkCheckTimeout: 1000000,
+      timeoutBlocks: 200,
       provider: function() {
-        return new HDWalletProvider(kovanMnemonic, "https://optimism-kovan.infura.io/v3/b173556baa1a4e1cb7c56d664e79808c");
+        return new HDWalletProvider(GANACHE_MNEMONIC, INFURA_API_OPTIMISM_KOVAN_URL);
+      }
+    },
+    optimism_mainnet: {
+      network_id: 10,
+      chain_id: 10,
+      // from: "0x0BA7D28addf7Ca4d546323Fd0B423817e1Cb8eb0",
+      networkCheckTimeout: 1000000,
+      timeoutBlocks: 200,
+      provider: function() {
+        return new HDWalletProvider(MAINNET_MNEMONIC, INFURA_API_OPTIMISM_MAINNET_URL);
       }
     },
   },

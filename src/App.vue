@@ -1,7 +1,5 @@
 <template>
-  <div class="bg-img pt-3 vh-100">
-    <TopPage/>
-  </div>
+  <TopPage/>
 </template>
 
 <script>
@@ -22,8 +20,5 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-}
-.bg-img {
-  background-image: url("assets/background.jpeg");
 }
 </style>
